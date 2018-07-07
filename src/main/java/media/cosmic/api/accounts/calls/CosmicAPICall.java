@@ -125,4 +125,16 @@ public class CosmicAPICall {
 	public String getAPIPath() {
 		return _PATH_;
 	}
+	
+	/**
+	 * Executes this CosmicAPICall and returns the response model object
+	 * @param params the parameters to pass it
+	 * @return the response as a response model object
+	 * @throws IOException if connecting to the server fails
+	 * @throws CosmicVersionMismatchException  if the API version does not match the internal API version
+	 * @since v2.0.0
+	 */
+	public CosmicAccountModel execute(String[] params) throws CosmicVersionMismatchException, IOException {
+		return CosmicAPICall.execute(this, params);
+	}
 }
