@@ -47,7 +47,7 @@ public class CosmicAccounts {
 	 * @return the base API URL
 	 * @since v2.0.0
 	 */
-	public String getBaseURL() {
+	public static String getBaseURL() {
 		return _API_URL_;
 	}
 	
