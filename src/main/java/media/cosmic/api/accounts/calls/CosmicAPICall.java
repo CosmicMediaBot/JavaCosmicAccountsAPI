@@ -2,6 +2,8 @@ package media.cosmic.api.accounts.calls;
 
 import java.io.IOException;
 
+import org.jsoup.Jsoup;
+
 import media.cosmic.api.accounts.CosmicAccounts;
 import media.cosmic.api.accounts.exception.CosmicVersionMismatchException;
 import media.cosmic.api.accounts.models.CosmicAccountModel;
@@ -66,8 +68,8 @@ public class CosmicAPICall {
 	 * @param call the call to execute
 	 * @param params the parameters to provide
 	 * @return the call's response
-	 * @throws IOException 
-	 * @throws CosmicVersionMismatchException 
+	 * @throws IOException if connecting to the server fails
+	 * @throws CosmicVersionMismatchException if the API version is diffent from the internal API version
 	 * @since v2.0.0
 	 */
 	public static CosmicAccountModel execute(CosmicAPICall call, String[] params) throws CosmicVersionMismatchException, IOException {
@@ -97,10 +99,9 @@ public class CosmicAPICall {
 		// Replace version flag
 		tmpPath = tmpPath.replace("%v", CosmicAccounts.getAPIVersionString());
 		
-		// Get response from server
+		String json = Jsoup.connect(CosmicAccounts.getBaseURL()+tmpPath).ignoreContentType(true).execute().body();
 		
-		
-		// TODO convert to response model
+		response = CosmicAccounts.getGson().fromJson(json, call.getModel().getClass());
 		
 		return response;
 	}
