@@ -99,15 +99,10 @@ public class CosmicAccountSession {
 	 * @throws CosmicAuthenticationException if this session has not been authorized
 	 * @since v2.0.0
 	 */
-	public CosmicUserInfo fetchUserInfo() throws CosmicVersionMismatchException, CosmicAPIErrorException, IOException, CosmicAuthenticationException {
-		boolean authed = false;
-		if(_AUTHORIZED_==false) {
-			authed = isAuthorized();
-		}
-		
+	public CosmicUserInfo fetchUserInfo() throws CosmicVersionMismatchException, CosmicAPIErrorException, IOException, CosmicAuthenticationException {		
 		CosmicUserInfo info = new CosmicUserInfo();
 		
-		if(authed) {
+		if(isAuthorized()) {
 			FetchUserInfoModel model = ((FetchUserInfoModel)CosmicAPICall.FETCH_USER_INFO.execute(new String[] {_PRIVATE_KEY_, _TOKEN_}));
 			
 			// Set values
