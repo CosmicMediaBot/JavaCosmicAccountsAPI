@@ -9,6 +9,7 @@ import org.jsoup.Jsoup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import media.cosmic.api.accounts.exception.CosmicAPIErrorException;
 import media.cosmic.api.accounts.exception.CosmicException;
 import media.cosmic.api.accounts.exception.CosmicVersionMismatchException;
 import media.cosmic.api.accounts.models.VersionModel;
@@ -35,10 +36,11 @@ public class CosmicAccounts {
 	 * @param privKey the API private key
 	 * @param callback the callback URL
 	 * @return a new CosmicAccountConnection
-	 * @throws CosmicException
+	 * @throws IOException if connecting to the server fails
+	 * @throws CosmicAPIErrorException if the API response returns an error
 	 * @since v2.0.0
 	 */
-	public static CosmicAccountConnection createConnection(String privKey, String callback) throws CosmicException {
+	public static CosmicAccountConnection createConnection(String privKey, String callback) throws IOException, CosmicAPIErrorException {
 		return new CosmicAccountConnection(privKey, callback);
 	}
 	

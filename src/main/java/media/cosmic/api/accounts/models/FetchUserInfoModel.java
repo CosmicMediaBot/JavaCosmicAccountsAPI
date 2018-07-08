@@ -5,7 +5,7 @@ package media.cosmic.api.accounts.models;
  * @author termer
  * @since v2.0.0
  */
-public class FetchUserInfoModel {
+public class FetchUserInfoModel extends CosmicAccountModel {
 	public String cosmic_id = null;
 	public String username = null;
 	public String email = null;

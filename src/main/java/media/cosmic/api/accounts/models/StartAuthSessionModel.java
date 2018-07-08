@@ -5,6 +5,6 @@ package media.cosmic.api.accounts.models;
  * @author termer
  * @since v2.0.0
  */
-public class StartAuthSessionModel {
+public class StartAuthSessionModel extends CosmicAccountModel {
 	public String key = null;
 }

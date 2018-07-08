@@ -1,6 +1,6 @@
 package media.cosmic.api.accounts;
 
-import media.cosmic.api.accounts.exception.CosmicException;
+import media.cosmic.api.accounts.exception.CosmicAPIErrorException;
 
 /**
  * Connection class for CosmicMedia accounts API
@@ -15,14 +15,15 @@ public class CosmicAccountConnection {
 	
 	private boolean _ACCEPTED_ = false;
 	
-	protected CosmicAccountConnection(String privKey, String callback) throws CosmicException {
+	protected CosmicAccountConnection(String privKey, String callback) throws CosmicAPIErrorException {
 		if(privKey==null || callback==null) {
-			throw new CosmicException("Private key or callback is null");
+			throw new IllegalArgumentException("Private key or callback is null");
 		} else {
 			_PRIVATE_KEY_ = privKey;
 			_CALLBACK_ = callback;
 		}
 		
+		// Retrieve token
 		
 	}
 }
