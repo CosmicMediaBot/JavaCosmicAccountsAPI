@@ -1,5 +1,8 @@
 package examples;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import media.cosmic.api.accounts.CosmicAccountSession;
 import media.cosmic.api.accounts.CosmicAccounts;
 import media.cosmic.api.accounts.utils.CosmicUserInfo;
@@ -7,7 +10,20 @@ import media.cosmic.api.accounts.utils.CosmicUserInfo;
 public class ExampleApplication {
 	public static void main(String[] args) {
 		try {
-			CosmicAccountSession sess = CosmicAccounts.createSession("YourPrivateKey", "https://your.domain/some-callback-url?token=");
+			// Get private key and callback URL from the command line
+			BufferedReader terminal = new BufferedReader(new InputStreamReader(System.in));
+			
+			System.out.print("Please enter your private key\n> ");
+			
+			// Private key
+			String privKey = terminal.readLine();
+			
+			System.out.print("\nPlease enter a callback URL\n> ");
+			
+			// Callback URL
+			String callback = terminal.readLine();
+			
+			CosmicAccountSession sess = CosmicAccounts.createSession(privKey, callback);
 			
 			System.out.println("Please visit the following URL to authorize this session:");
 			System.out.println(sess.getAuthorizationURL()+"\n");
