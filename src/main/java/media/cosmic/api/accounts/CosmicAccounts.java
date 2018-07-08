@@ -40,8 +40,8 @@ public class CosmicAccounts {
 	 * @throws CosmicAPIErrorException if the API response returns an error
 	 * @since v2.0.0
 	 */
-	public static CosmicAccountConnection createConnection(String privKey, String callback) throws IOException, CosmicAPIErrorException {
-		return new CosmicAccountConnection(privKey, callback);
+	public static CosmicAccountSession createConnection(String privKey, String callback) throws IOException, CosmicAPIErrorException {
+		return new CosmicAccountSession(privKey, callback);
 	}
 	
 	/**

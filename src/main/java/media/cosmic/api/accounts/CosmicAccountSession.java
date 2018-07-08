@@ -7,7 +7,7 @@ import media.cosmic.api.accounts.exception.CosmicAPIErrorException;
  * @author termer
  * @since v2.0.0
  */
-public class CosmicAccountConnection {
+public class CosmicAccountSession {
 	private String _PRIVATE_KEY_ = null;
 	private String _CALLBACK_ = null;
 	
@@ -15,7 +15,7 @@ public class CosmicAccountConnection {
 	
 	private boolean _ACCEPTED_ = false;
 	
-	protected CosmicAccountConnection(String privKey, String callback) throws CosmicAPIErrorException {
+	protected CosmicAccountSession(String privKey, String callback) throws CosmicAPIErrorException {
 		if(privKey==null || callback==null) {
 			throw new IllegalArgumentException("Private key or callback is null");
 		} else {
