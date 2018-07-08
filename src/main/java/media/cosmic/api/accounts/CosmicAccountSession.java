@@ -1,6 +1,11 @@
 package media.cosmic.api.accounts;
 
+import java.io.IOException;
+
+import media.cosmic.api.accounts.calls.CosmicAPICall;
 import media.cosmic.api.accounts.exception.CosmicAPIErrorException;
+import media.cosmic.api.accounts.exception.CosmicVersionMismatchException;
+import media.cosmic.api.accounts.models.StartAuthSessionModel;
 
 /**
  * Connection class for CosmicMedia accounts API
@@ -15,7 +20,7 @@ public class CosmicAccountSession {
 	
 	private boolean _ACCEPTED_ = false;
 	
-	protected CosmicAccountSession(String privKey, String callback) throws CosmicAPIErrorException {
+	protected CosmicAccountSession(String privKey, String callback) throws CosmicAPIErrorException, CosmicVersionMismatchException, IOException {
 		if(privKey==null || callback==null) {
 			throw new IllegalArgumentException("Private key or callback is null");
 		} else {
@@ -24,6 +29,6 @@ public class CosmicAccountSession {
 		}
 		
 		// Retrieve token
-		
+		_TOKEN_ = ((StartAuthSessionModel)CosmicAPICall.START_AUTH_SESSION.execute(new String[] {privKey, callback})).key;
 	}
 }
