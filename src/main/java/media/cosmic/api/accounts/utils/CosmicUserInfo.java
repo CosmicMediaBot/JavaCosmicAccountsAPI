@@ -44,7 +44,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new username value for this object
-	 * @param id the value
+	 * @param username the value
 	 * @since v2.0.0
 	 */
 	public void setUsername(String username) {
@@ -69,7 +69,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new email value for this object
-	 * @param id the value
+	 * @param email the value
 	 * @since v2.0.0
 	 */
 	public void setEmail(String email) {
@@ -94,7 +94,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new full name value for this object
-	 * @param id the value
+	 * @param fullName the value
 	 * @since v2.0.0
 	 */
 	public void setFullName(String fullName) {
@@ -119,7 +119,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new gender value for this object
-	 * @param id the value
+	 * @param gender the value
 	 * @since v2.0.0
 	 */
 	public void setGender(String gender) {
@@ -144,7 +144,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new birthday value for this object
-	 * @param id the value
+	 * @param birthday the value
 	 * @since v2.0.0
 	 */
 	public void setBirthday(String birthday) {
@@ -169,7 +169,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new country value for this object
-	 * @param id the value
+	 * @param country the value
 	 * @since v2.0.0
 	 */
 	public void setCountry(String country) {
@@ -194,7 +194,7 @@ public class CosmicUserInfo {
 	}
 	/**
 	 * Stores a new phone number value for this object
-	 * @param id the value
+	 * @param phone the value
 	 * @since v2.0.0
 	 */
 	public void setPhoneNumber(String phone) {
