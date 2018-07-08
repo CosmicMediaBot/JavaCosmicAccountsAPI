@@ -7,7 +7,7 @@ import media.cosmic.api.accounts.utils.CosmicUserInfo;
 public class ExampleApplication {
 	public static void main(String[] args) {
 		try {
-			CosmicAccountSession sess = CosmicAccounts.createSession("YourPrivateKey", "https://termer.net/");
+			CosmicAccountSession sess = CosmicAccounts.createSession("YourPrivateKey", "https://your.domain/some-callback-url?token=");
 			
 			System.out.println("Please visit the following URL to authorize this session:");
 			System.out.println(sess.getAuthorizationURL()+"\n");
