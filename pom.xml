@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>JavaCosmicAccountsAPI</groupId>
   <artifactId>JavaCosmicAccountsAPI</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>v2.0.0</version>
   <dependencies>
     <dependency>
       <groupId>com.google.code.gson</groupId>
