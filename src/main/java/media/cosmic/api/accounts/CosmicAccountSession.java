@@ -102,7 +102,7 @@ public class CosmicAccountSession {
 	public CosmicUserInfo fetchUserInfo() throws CosmicVersionMismatchException, CosmicAPIErrorException, IOException, CosmicAuthenticationException {
 		boolean authed = false;
 		if(_AUTHORIZED_==false) {
-			isAuthorized();
+			authed = isAuthorized();
 		}
 		
 		CosmicUserInfo info = new CosmicUserInfo();
