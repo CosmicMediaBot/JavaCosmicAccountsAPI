@@ -31,4 +31,22 @@ public class CosmicAccountSession {
 		// Retrieve token
 		_TOKEN_ = ((StartAuthSessionModel)CosmicAPICall.START_AUTH_SESSION.execute(new String[] {privKey, callback})).key;
 	}
+	
+	/**
+	 * Returns this session's token
+	 * @return this session's token
+	 * @since v2.0.0
+	 */
+	public String getToken() {
+		return _TOKEN_;
+	}
+	
+	/**
+	 * Returns the authorization URL a user must visit to authorize this session
+	 * @return the authorization URL
+	 * @since v2.0.0
+	 */
+	public String getAuthorizationURL() {
+		return CosmicAccounts.getBaseURL().replace("api/", "")+"auth?q="+_TOKEN_;
+	}
 }
