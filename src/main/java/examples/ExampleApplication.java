@@ -1,18 +1,53 @@
-package testing;
+package examples;
 
+import media.cosmic.api.accounts.CosmicAccountSession;
 import media.cosmic.api.accounts.CosmicAccounts;
-import media.cosmic.api.accounts.calls.CosmicAPICall;
-import media.cosmic.api.accounts.models.FetchUserInfoModel;
-import media.cosmic.api.accounts.models.StartAuthSessionModel;
+import media.cosmic.api.accounts.utils.CosmicUserInfo;
 
-public class CAAPI {
+public class ExampleApplication {
 	public static void main(String[] args) {
 		try {
-			// Use dev server
 			CosmicAccounts.setBaseURL("https://accounts-dev.cosmic.media/api/");
 			
+			CosmicAccountSession sess = CosmicAccounts.createSession("YourPrivateKey", "https://termer.net/");
 			
-			System.out.println(((StartAuthSessionModel)CosmicAPICall.START_AUTH_SESSION.execute(new String[]{"EO6wO0c7L5ty","https://termer.net/"})).key);
+			System.out.println("Please visit the following URL to authorize this session:");
+			System.out.println(sess.getAuthorizationURL()+"\n");
+			
+			// Refresh every 2 seconds
+			while(!sess.isAuthorized()) {
+				Thread.sleep(2000);
+			}
+			
+			System.out.println("\nAuthorized!");
+			
+			CosmicUserInfo info = sess.fetchUserInfo();
+			
+			// Print all account information available
+			if(info.isCosmicIDPresent()) {
+				System.out.println("Cosmic ID: "+info.getCosmicID());
+			}
+			if(info.isUsernamePresent()) {
+				System.out.println("Username: "+info.getUsername());
+			}
+			if(info.isEmailPresent()) {
+				System.out.println("Email: "+info.getEmail());
+			}
+			if(info.isFullNamePresent()) {
+				System.out.println("Full name: "+info.getFullName());
+			}
+			if(info.isGenderPresent()) {
+				System.out.println("Gender: "+info.getGender());
+			}
+			if(info.isBirthdayPresent()) {
+				System.out.println("Birthday: "+info.getBirthday());
+			}
+			if(info.isCountryPresent()) {
+				System.out.println("Country: "+info.getCountry());
+			}
+			if(info.isPhoneNumberPresent()) {
+				System.out.println("Phone number: "+info.getPhoneNumber());
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
