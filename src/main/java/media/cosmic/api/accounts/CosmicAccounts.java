@@ -10,7 +10,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import media.cosmic.api.accounts.exception.CosmicAPIErrorException;
-import media.cosmic.api.accounts.exception.CosmicException;
 import media.cosmic.api.accounts.exception.CosmicVersionMismatchException;
 import media.cosmic.api.accounts.models.VersionModel;
 
@@ -38,9 +37,10 @@ public class CosmicAccounts {
 	 * @return a new CosmicAccountConnection
 	 * @throws IOException if connecting to the server fails
 	 * @throws CosmicAPIErrorException if the API response returns an error
+	 * @throws CosmicVersionMismatchException if the API version is different from the internal API version
 	 * @since v2.0.0
 	 */
-	public static CosmicAccountSession createConnection(String privKey, String callback) throws IOException, CosmicAPIErrorException {
+	public static CosmicAccountSession createSession(String privKey, String callback) throws IOException, CosmicAPIErrorException, CosmicVersionMismatchException {
 		return new CosmicAccountSession(privKey, callback);
 	}
 	
