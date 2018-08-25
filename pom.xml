@@ -15,4 +15,23 @@
       <version>1.11.3</version>
     </dependency>
   </dependencies>
+  <licenses>
+    <license>
+      <name>The MIT License, Version 1.0</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Termer</name>
+      <email>termer@protonmail.com</email>
+      <organization>CosmicMedia LLC</organization>
+      <organizationUrl>https://cosmic.media/</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git@github.com:CosmicMedia/JavaCosmicAccountsAPI.git</connection>
+    <developerConnection>scm:git:git@github.com:CosmicMedia/JavaCosmicAccountsAPI.git</developerConnection>
+    <url>git@github.com:CosmicMedia/JavaCosmicAccountsAPI/</url>
+  </scm>
 </project>
